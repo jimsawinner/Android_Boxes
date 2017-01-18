@@ -14,11 +14,10 @@ public class Planet {
     int maxTemp;
     public static String[] names = {"Earth", "Mercury", "Venus", "Jupiter", "Saturn", "Neptune", "Mars"};
 
-    public static Planet earth = new Planet(names[0],40030,1,365,58);
-
+    public static Planet jupiter = new Planet(names[0],40030,1,365,58);
     public static Planet mercury = new Planet(names[1],40030,1,365,58);
     public static Planet venus = new Planet(names[2],40030,1,365,58);
-    public static Planet jupiter = new Planet(names[3],40030,1,365,58);
+    public static Planet earth = new Planet(names[3],40030,1,365,58);
     public static Planet saturn = new Planet(names[4],40030,1,365,58);
     public static Planet neptune = new Planet(names[5],40030,1,365,58);
     public static Planet mars = new Planet(names[6],40030,1,365,58);
