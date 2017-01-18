@@ -5,12 +5,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,8 +28,10 @@ public class PlanetFactsFragment extends Fragment {
 
     View view;
 
-    IntentFilter filter = new IntentFilter(Constant.LOBBY_MSG);
+    IntentFilter filter = new IntentFilter(Constant.TIMER_ACTION);
     BroadcastReceiver broadcastReceiver;
+
+    private Chronometer chronometer;
 
     @Override
     public void onResume() {
@@ -43,14 +47,33 @@ public class PlanetFactsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.planet_fact_frag, container, false);
+
+        // Get a reference to chronometer_2
+        chronometer = (Chronometer) view.findViewById(R.id.chronometer_2);
+
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.d(TAG,"Broadcast message received in "+TAG);
+                // Debug log to console
+                Log.d(TAG,"Broadcast message rec'd in "+TAG);
+
+                if(intent.hasExtra(Constant.TIMER_PLAYER_2)) {
+                    String action = intent.getStringExtra(Constant.TIMER_PLAYER_2);
+                    switch(action) {
+                        case "start":
+                            chronometer.setTextColor(Color.RED);
+                            chronometer.start();
+                            break;
+                        case "stop":
+                            chronometer.setTextColor(Color.BLUE);
+                            chronometer.stop();
+                            break;
+                    }
+                }
             }
         };
 
-        view = inflater.inflate(R.layout.planet_fact_frag, container, false);
         ((Button)view.findViewById(R.id.add_list_item_btn)).setOnClickListener(
                 new View.OnClickListener() {
                     int planetNum = 0;
