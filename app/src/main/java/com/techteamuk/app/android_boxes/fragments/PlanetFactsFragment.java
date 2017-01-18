@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.techteamuk.app.android_boxes.R;
 import com.techteamuk.app.android_boxes.constant.Constant;
@@ -58,6 +59,9 @@ public class PlanetFactsFragment extends Fragment {
                         if(planetNum < Planet.names.length) {
                             Log.d(TAG, "Button Clicked...");
                             broadcastIntent(Planet.names[planetNum++]);
+                        }else{
+                            // Popup 'toast' at bottom of screen
+                            Toast.makeText(getActivity(), "Not possible.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
