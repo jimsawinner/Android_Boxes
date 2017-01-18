@@ -52,6 +52,7 @@ public class PlanetFactsFragment extends Fragment {
         view = inflater.inflate(R.layout.planet_fact_frag, container, false);
         ((Button)view.findViewById(R.id.add_list_item_btn)).setOnClickListener(
                 new View.OnClickListener() {
+                    int planetNum = 0;
                     @Override
                     public void onClick(View view){
                         Log.d(TAG,"Button Clicked...");
@@ -73,11 +74,11 @@ public class PlanetFactsFragment extends Fragment {
         ((TextView)view.findViewById(R.id.orbitperiod)).setText("Earth Month =: "+p.calcEarthMonth());
     }
 
-    private void broadcastIntent() {
+    private void broadcastIntent(String planet) {
         Intent intent = new Intent();
         intent.setAction(Constant.LIST_MSG);
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-//        intent.putExtra(Constant.PLANET_DETAIL,planet);
+        intent.putExtra(Constant.PLANET_DETAIL,planet);
         getActivity().sendBroadcast(intent);
     }
 }
