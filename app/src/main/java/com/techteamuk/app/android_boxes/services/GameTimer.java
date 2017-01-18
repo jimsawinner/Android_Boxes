@@ -43,8 +43,8 @@ public class GameTimer extends IntentService {
             intent.putExtra(Constant.TIMER_PLAYER_1, "start");
             intent.putExtra(Constant.TIMER_PLAYER_2, "stop");
         }else{
-            intent.putExtra(Constant.TIMER_PLAYER_1, "stop");
             intent.putExtra(Constant.TIMER_PLAYER_2, "start");
+            intent.putExtra(Constant.TIMER_PLAYER_1, "stop");
         }
         GameData.updateNextPlayer();
         sendBroadcast(intent);

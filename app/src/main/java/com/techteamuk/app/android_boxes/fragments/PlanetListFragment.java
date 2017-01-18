@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.techteamuk.app.android_boxes.R;
 import com.techteamuk.app.android_boxes.constant.Constant;
+import com.techteamuk.app.android_boxes.services.GameTimer;
+import com.techteamuk.app.android_boxes.utility.GameData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +76,10 @@ public class PlanetListFragment extends ListFragment {
         ((PlanetDetailFragment)getFragmentManager().findFragmentById(R.id.fragment_centre)).setImage(Planet.planetResource[position]);
 
         // Broadcast message to LOBBY_MSG register listeners
-        broadcastIntent();
+//        broadcastIntent();
+
+        GameData.resetGameData();
+        callServiceTimerExample();
 
         Log.d("TAG","Broadcast message sent");
     }
@@ -92,5 +97,11 @@ public class PlanetListFragment extends ListFragment {
 
         ListAdapter mAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, newList);
         setListAdapter(mAdapter);
+    }
+
+    public void callServiceTimerExample() {
+        Intent intent = new Intent(getActivity(), GameTimer.class);
+        intent.setAction(Constant.GAME_START);
+        getActivity().startService(intent);
     }
 }
