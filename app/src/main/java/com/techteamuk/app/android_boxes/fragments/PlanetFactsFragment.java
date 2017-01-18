@@ -55,8 +55,10 @@ public class PlanetFactsFragment extends Fragment {
                     int planetNum = 0;
                     @Override
                     public void onClick(View view){
-                        Log.d(TAG,"Button Clicked...");
-                        broadcastIntent("Planet_"+planetNum++);
+                        if(planetNum < Planet.names.length) {
+                            Log.d(TAG, "Button Clicked...");
+                            broadcastIntent(Planet.names[planetNum++]);
+                        }
                     }
                 }
         );
