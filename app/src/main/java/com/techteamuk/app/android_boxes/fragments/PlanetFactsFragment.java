@@ -100,7 +100,7 @@ public class PlanetFactsFragment extends Fragment {
         ((TextView)view.findViewById(R.id.moons)).setText("Moons =: "+p.getMoons());
         ((TextView)view.findViewById(R.id.orbitperiod)).setText("Solar Year =: "+p.getOrbitPeriod());
         ((TextView)view.findViewById(R.id.maxtemp)).setText("Maximum Temperature =: "+p.getMaxTemp());
-        ((TextView)view.findViewById(R.id.orbitperiod)).setText("Earth Month =: "+p.calcEarthMonth());
+        ((TextView)view.findViewById(R.id.earthmonth)).setText("Earth Month =: "+p.calcEarthMonth());
     }
 
     private void broadcastIntent(String planet) {
