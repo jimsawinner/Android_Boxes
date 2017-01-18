@@ -31,7 +31,7 @@ public class GameTimer extends IntentService {
                         this.cancel();
                     }
                 }
-            }, 0, 5000);
+            }, 0, 6000);
         }
     }
 

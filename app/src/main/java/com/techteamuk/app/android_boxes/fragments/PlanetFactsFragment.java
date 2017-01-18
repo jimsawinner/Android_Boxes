@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,7 @@ public class PlanetFactsFragment extends Fragment {
                     switch(action) {
                         case "start":
                             chronometer.setTextColor(Color.RED);
+//                            chronometer.setBase(SystemClock.elapsedRealtime());
                             chronometer.start();
                             break;
                         case "stop":
