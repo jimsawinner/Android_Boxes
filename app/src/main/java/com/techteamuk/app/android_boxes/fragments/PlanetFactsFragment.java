@@ -45,7 +45,7 @@ public class PlanetFactsFragment extends Fragment {
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.d(TAG,"Broadcast message rec'd in "+TAG);
+                Log.d(TAG,"Broadcast message received in "+TAG);
             }
         };
 
