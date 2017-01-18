@@ -68,7 +68,7 @@ public class PlanetFactsFragment extends Fragment {
         Planet p = Planet.planetFacts[planet];
         ((TextView)view.findViewById(R.id.page_header)).setText("Planet facts for: "+p.getName());
         ((TextView)view.findViewById(R.id.circumference)).setText("Circumference =: "+p.getEqCircumference());
-        ((TextView)view.findViewById(R.id.moons)).setText("Moons =: "+p.getName());
+        ((TextView)view.findViewById(R.id.moons)).setText("Moons =: "+p.getMoons());
         ((TextView)view.findViewById(R.id.orbitperiod)).setText("Solar Year =: "+p.getOrbitPeriod());
         ((TextView)view.findViewById(R.id.maxtemp)).setText("Maximum Temperature =: "+p.getMaxTemp());
         ((TextView)view.findViewById(R.id.orbitperiod)).setText("Earth Month =: "+p.calcEarthMonth());
