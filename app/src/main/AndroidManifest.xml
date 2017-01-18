@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
+        <!--<activity android:name=".MainActivity"/>-->
 
         <activity android:name=".fragments.StaticFragmentsDemoActivity">
             <intent-filter>
@@ -18,10 +18,12 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".services.GameTimer"/>
+
         <activity android:name=".fragments.OtherActivity"/>
 
-        <activity android:name=".planetList.PlanetActivity"/>
-        <activity android:name=".planetList.DisplayActivity"/>
+        <!--<activity android:name=".planetList.PlanetActivity"/>-->
+        <!--<activity android:name=".planetList.DisplayActivity"/>-->
     </application>
 
 </manifest>
