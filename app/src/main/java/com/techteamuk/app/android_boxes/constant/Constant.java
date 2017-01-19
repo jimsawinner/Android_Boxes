@@ -25,7 +25,7 @@ public class Constant {
 
     public final static String GAME_START = "com.techteamuk.app.android_boxes.constant.GAME_START";
 
-    public final static String GAME_STOP = "com.techteamuk.app.android_boxes.constant.GAME_STOP";
+    public final static String GAME_STOP = "com.techteamuk.app.android_boxes.constant.TIMER_ACTION";
 
     public final static int TURNS = 15;
 

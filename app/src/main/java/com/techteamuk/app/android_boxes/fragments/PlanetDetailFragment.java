@@ -73,7 +73,7 @@ public class PlanetDetailFragment extends Fragment implements View.OnClickListen
 
         colCycleBtn = (Button) result.findViewById(R.id.colourCycle_btn);
         colCycleBtn.setEnabled(false);
-        colCycleBtn.setOnClickListener(this);
+        //colCycleBtn.setOnClickListener(this);
 
         // Get a reference to chronometer_1
         chronometer = (Chronometer) result.findViewById(R.id.chronometer_1);
