@@ -27,7 +27,7 @@ public class Constant {
 
     public final static String GAME_STOP = "com.techteamuk.app.android_boxes.constant.GAME_STOP";
 
-    public final static int TURNS = 15;
+    public final static int TURNS = 3;
 
     public final static int MAX_COLOURS = 4;
 

@@ -93,12 +93,10 @@ public class GameTimerBoundService extends Service {
         }
 
         // Stop message for both players
-        private void stopAllMsg(){
+        private void stopAllMsg() {
             Intent intent = new Intent();
             intent.setAction(Constant.TIMER_ACTION);
-                intent.putExtra(Constant.TIMER_PLAYER_1, "stop");
-                intent.putExtra(Constant.TIMER_PLAYER_2, "stop");
-//            intent.putExtra(Constant.GAME_STOP, Constant.GAME_STOP);
+            intent.putExtra(Constant.GAME_STOP,Constant.GAME_STOP);
             LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
         }
     }

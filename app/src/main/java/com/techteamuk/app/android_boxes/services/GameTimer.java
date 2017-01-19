@@ -16,7 +16,9 @@ import java.util.TimerTask;
 public class GameTimer extends IntentService {
     Timer gameTimer;
 
-    public GameTimer() { super("GameTimer"); }
+    public GameTimer() {
+        super("GameTimer");
+    }
 
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -54,8 +56,7 @@ public class GameTimer extends IntentService {
     private void stopAllMsg(){
         Intent intent = new Intent();
         intent.setAction(Constant.TIMER_ACTION);
-        intent.putExtra(Constant.TIMER_PLAYER_1, "stop");
-        intent.putExtra(Constant.TIMER_PLAYER_2, "stop");
+        intent.putExtra(Constant.GAME_STOP, Constant.GAME_STOP);
         sendBroadcast(intent);
     }
 }
