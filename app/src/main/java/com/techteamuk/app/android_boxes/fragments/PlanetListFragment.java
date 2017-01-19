@@ -84,24 +84,11 @@ public class PlanetListFragment extends ListFragment {
         Log.d("TAG","Broadcast message sent");
     }
 
-    private void broadcastIntent() {
-        Intent intent = new Intent();
-        intent.setAction(Constant.LOBBY_MSG);
-        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        getActivity().sendBroadcast(intent);
-    }
-
-    public void updateList(String s){
+    public void updateList(String s) {
         updateList.add(s);
         String[] newList = updateList.toArray(new String[updateList.size()]);
 
-        ListAdapter mAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, newList);
+        ListAdapter mAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, newList);
         setListAdapter(mAdapter);
-    }
-
-    public void callServiceTimerExample() {
-        Intent intent = new Intent(getActivity(), GameTimer.class);
-        intent.setAction(Constant.GAME_START);
-        getActivity().startService(intent);
     }
 }

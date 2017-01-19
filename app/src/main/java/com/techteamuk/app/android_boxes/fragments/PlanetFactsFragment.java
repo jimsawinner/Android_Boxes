@@ -1,13 +1,18 @@
 package com.techteamuk.app.android_boxes.fragments;
 
+import android.app.Application;
 import android.app.Fragment;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.os.SystemClock;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,31 +24,48 @@ import android.widget.Toast;
 
 import com.techteamuk.app.android_boxes.R;
 import com.techteamuk.app.android_boxes.constant.Constant;
+import com.techteamuk.app.android_boxes.services.GameTimerBoundService;
+import com.techteamuk.app.android_boxes.services.IGameTimer;
 
 /**
  * Created by jim on 16/01/2017.
  */
 
-public class PlanetFactsFragment extends Fragment {
+public class PlanetFactsFragment extends Fragment implements ServiceConnection {
     private final String TAG = getClass().toString();
-
-    View view;
 
     IntentFilter filter = new IntentFilter(Constant.TIMER_ACTION);
     BroadcastReceiver broadcastReceiver;
-
+    private IGameTimer binding=null;
     private Chronometer chronometer;
+    private Application appContext=null;
+
+    View view;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+
+        Log.d(TAG,"Binding service in "+TAG);
+
+        appContext=(Application)getActivity().getApplicationContext();
+        appContext.bindService(new Intent(getActivity(), GameTimerBoundService.class), this, Context.BIND_AUTO_CREATE);
+        Log.d(TAG,"Service bound in "+TAG);
+    }
 
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().registerReceiver(this.broadcastReceiver, filter);
+//        getActivity().registerReceiver(this.broadcastReceiver, filter);
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(broadcastReceiver, filter);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        getActivity().unregisterReceiver(this.broadcastReceiver);
+//        getActivity().unregisterReceiver(this.broadcastReceiver);
+        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(broadcastReceiver);
     }
 
     @Override
@@ -59,18 +81,25 @@ public class PlanetFactsFragment extends Fragment {
                 // Debug log to console
                 Log.d(TAG,"Broadcast message rec'd in "+TAG);
 
-                if(intent.hasExtra(Constant.TIMER_PLAYER_2)) {
-                    String action = intent.getStringExtra(Constant.TIMER_PLAYER_2);
-                    switch(action) {
-                        case "start":
-                            chronometer.setTextColor(Color.RED);
-//                            chronometer.setBase(SystemClock.elapsedRealtime());
-                            chronometer.start();
-                            break;
-                        case "stop":
-                            chronometer.setTextColor(Color.BLUE);
-                            chronometer.stop();
-                            break;
+                if(intent.getAction().equals(Constant.TIMER_ACTION)) {
+                    if(intent.hasExtra(Constant.GAME_STOP)) {
+                        chronometer.stop();
+                        return;
+                    }
+
+                    if(intent.hasExtra(Constant.TIMER_PLAYER_2)) {
+                        String action = intent.getStringExtra(Constant.TIMER_PLAYER_2);
+                        switch(action) {
+                            case "start":
+                                chronometer.setTextColor(Color.RED);
+                                chronometer.setBase(SystemClock.elapsedRealtime());
+                                chronometer.start();
+                                break;
+                            case "stop":
+                                chronometer.setTextColor(Color.BLUE);
+                                chronometer.stop();
+                                break;
+                        }
                     }
                 }
             }
@@ -111,5 +140,17 @@ public class PlanetFactsFragment extends Fragment {
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         intent.putExtra(Constant.PLANET_DETAIL,planet);
         getActivity().sendBroadcast(intent);
+    }
+
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder iBinder) {
+        Log.d(TAG,"Service connected in "+TAG);
+        binding=(IGameTimer) iBinder;
+    }
+
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+        Log.d(TAG,"Service disconnected in "+TAG);
+        binding.timerStop();
     }
 }
