@@ -7,12 +7,25 @@
     android:paddingRight="64dp"
     android:paddingTop="16dp">
 
+    <Button
+        android:id="@+id/go_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go"/>
+
+    <Button
+        android:id="@+id/colourCycle_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cycle Colour"
+        android:layout_alignEnd="@+id/planet_image"/>
+    
     <ImageView
         android:id="@+id/planet_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/earth"
-        android:paddingTop="20sp"/>
+        android:paddingTop="60sp"/>
     
     <Chronometer
         android:id="@+id/chronometer_1"

@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".services.GameTimer"/>
+        <service android:name=".services.GameTimerBoundService"/>
 
         <activity android:name=".fragments.OtherActivity"/>
 

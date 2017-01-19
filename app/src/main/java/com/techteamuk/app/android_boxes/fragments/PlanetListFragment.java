@@ -78,8 +78,8 @@ public class PlanetListFragment extends ListFragment {
         // Broadcast message to LOBBY_MSG register listeners
 //        broadcastIntent();
 
-        GameData.resetGameData();
-        callServiceTimerExample();
+//        GameData.resetGameData();
+//        callServiceTimerExample();
 
         Log.d("TAG","Broadcast message sent");
     }
