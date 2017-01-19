@@ -45,8 +45,12 @@ public class PlanetDetailFragment extends Fragment implements View.OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
+        Log.d(TAG,"Binding service in "+TAG);
+
         appContext=(Application)getActivity().getApplicationContext();
         appContext.bindService(new Intent(getActivity(), GameTimerBoundService.class), this, Context.BIND_AUTO_CREATE);
+        Log.d(TAG,"Service bound in "+TAG);
     }
 
     @Override
@@ -122,6 +126,7 @@ public class PlanetDetailFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Log.d(TAG,"Service connected in "+TAG);
         binding=(IGameTimer) iBinder;
         goBtn.setEnabled(true);
     }
@@ -132,6 +137,7 @@ public class PlanetDetailFragment extends Fragment implements View.OnClickListen
     }
 
     private void disconnect() {
+        Log.d(TAG,"Service disconnected in "+TAG);
         binding.timerStop();
         goBtn.setEnabled(false);
     }

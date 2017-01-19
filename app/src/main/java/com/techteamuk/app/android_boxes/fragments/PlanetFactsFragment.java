@@ -82,7 +82,7 @@ public class PlanetFactsFragment extends Fragment {
                     @Override
                     public void onClick(View view){
                         if(planetNum < Planet.names.length) {
-                            Log.d(TAG, "Button Clicked...");
+                            Log.d(TAG, "Button Clicked in "+TAG);
                             broadcastIntent(Planet.names[planetNum++]);
                         }else{
                             // Popup 'toast' at bottom of screen
