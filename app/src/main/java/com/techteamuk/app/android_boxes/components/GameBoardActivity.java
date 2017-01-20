@@ -6,9 +6,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
+import com.techteamuk.app.android_boxes.constant.Constant;
+
 public class GameBoardActivity extends AppCompatActivity {
+    private final String TAG = getClass().toString();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,37 +33,38 @@ public class GameBoardActivity extends AppCompatActivity {
             super.onDraw(canvas);
             int x = getWidth();
             int y = getHeight();
+            Log.d(TAG,"X: "+ x + " Y: "+ y);
             int radius;
             radius = 250;
+
             Paint paint = new Paint();
-            paint.setStyle(Paint.Style.FILL);
+
+            paint.setAntiAlias(true);
+            paint.setStrokeWidth(5);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeJoin(Paint.Join.ROUND);
+            paint.setStrokeCap(Paint.Cap.ROUND);
+
             paint.setColor(Color.WHITE);
             canvas.drawPaint(paint);
-            // Use Color.parseColor to define HTML colors
+
+            // Use Color.parseColor enables defining of HTML colors
             paint.setColor(Color.parseColor("#000000"));
-//            canvas.drawCircle(x / 2, y / 2, 50, paint);
 
             // draw the dots on the game board
 
+            // board size of 5 x 5 squares
+            int boardSize = Constant.LEVEL_HARD;
+
             // yPosition loop
-            for(int i=0;i<10;i++) {
+            for(int i=0;i<boardSize+1;i++) {
                 // xPosition loop
-                for (int j = 0; j < 20; j++) {
-                    int xPos = 25 + (j * 100);
-                    int yPos = 25 + (i * 100);
-                    canvas.drawCircle(xPos, yPos, 20, paint);
+                for (int j = 0; j < boardSize+1; j++) {
+                    int xPos = 150 + (j * 100);
+                    int yPos = 200 + (i * 100);
+                    canvas.drawCircle(xPos, yPos, 15, paint);
                 }
             }
-
-//            for(int i=0; i<10;i++){
-//                int xPos = 25 + (i * 100);
-//                int yPos = 125;
-//                canvas.drawCircle(xPos, yPos, 20, paint);
-//            }
-//            canvas.drawCircle(25, 25, 20, paint);
-//            canvas.drawCircle(125, 25, 20, paint);
-//            canvas.drawCircle(225, 25, 20, paint);
-//            canvas.drawCircle(325, 25, 20, paint);
         }
     }
 }
