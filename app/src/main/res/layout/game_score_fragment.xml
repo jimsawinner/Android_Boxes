@@ -3,30 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <GridLayout
-        android:layout_column="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical">
-
-
-        <Button
-            android:id="@+id/add_list_item_btn"
-            android:layout_row="0"
-            android:text="Add new Planet"
-            android:layout_width="wrap_content"
+        <GridLayout
+            android:layout_columnSpan="2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"/>
+            android:columnCount="4"
+            android:rowCount="4"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
 
-        <Chronometer
-            android:id="@+id/chronometer"
-            android:layout_row="1"
-            android:format="%s"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40sp" />
-    </GridLayout>
+            <TextView
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                android:text="Player 1"/>
 
+            <Button
+                android:id="@+id/add_list_item_btn"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:text="Add new Planet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:layout_column="3"
+                android:layout_row="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                android:text="Player 2"/>
+
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_column="3"
+                android:layout_row="1"
+                android:format="%s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="15dp"
+                android:textSize="40sp" />
+
+        </GridLayout>
 </FrameLayout>
