@@ -8,8 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.techteamuk.app.android_boxes.R;
-
 public class GameBoardActivity extends AppCompatActivity {
 
     @Override
@@ -38,13 +36,30 @@ public class GameBoardActivity extends AppCompatActivity {
             paint.setColor(Color.WHITE);
             canvas.drawPaint(paint);
             // Use Color.parseColor to define HTML colors
-            paint.setColor(Color.parseColor("#CD5C5C"));
-            canvas.drawCircle(x / 2, y / 2, 50, paint);
+            paint.setColor(Color.parseColor("#000000"));
+//            canvas.drawCircle(x / 2, y / 2, 50, paint);
 
-            canvas.drawCircle(25, 25, 20, paint);
-            canvas.drawCircle(125, 125, 20, paint);
-            canvas.drawCircle(225, 225, 20, paint);
-            canvas.drawCircle(325, 325, 20, paint);
+            // draw the dots on the game board
+
+            // yPosition loop
+            for(int i=0;i<10;i++) {
+                // xPosition loop
+                for (int j = 0; j < 20; j++) {
+                    int xPos = 25 + (j * 100);
+                    int yPos = 25 + (i * 100);
+                    canvas.drawCircle(xPos, yPos, 20, paint);
+                }
+            }
+
+//            for(int i=0; i<10;i++){
+//                int xPos = 25 + (i * 100);
+//                int yPos = 125;
+//                canvas.drawCircle(xPos, yPos, 20, paint);
+//            }
+//            canvas.drawCircle(25, 25, 20, paint);
+//            canvas.drawCircle(125, 25, 20, paint);
+//            canvas.drawCircle(225, 25, 20, paint);
+//            canvas.drawCircle(325, 25, 20, paint);
         }
     }
 }

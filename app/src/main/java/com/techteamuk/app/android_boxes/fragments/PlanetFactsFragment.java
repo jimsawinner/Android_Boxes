@@ -38,7 +38,6 @@ public class PlanetFactsFragment extends Fragment implements ServiceConnection {
     BroadcastReceiver broadcastReceiver;
     private IGameTimer binding=null;
     private Chronometer chronometer;
-    private Application appContext=null;
 
     View view;
 
@@ -49,7 +48,7 @@ public class PlanetFactsFragment extends Fragment implements ServiceConnection {
 
         Log.d(TAG,"Binding service in "+TAG);
 
-        appContext=(Application)getActivity().getApplicationContext();
+        Application appContext = (Application) getActivity().getApplicationContext();
         appContext.bindService(new Intent(getActivity(), GameTimerBoundService.class), this, Context.BIND_AUTO_CREATE);
         Log.d(TAG,"Service bound in "+TAG);
     }
@@ -59,6 +58,7 @@ public class PlanetFactsFragment extends Fragment implements ServiceConnection {
         super.onResume();
 //        getActivity().registerReceiver(this.broadcastReceiver, filter);
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(broadcastReceiver, filter);
+        Log.d(TAG,"Resumed "+TAG);
     }
 
     @Override
@@ -66,6 +66,7 @@ public class PlanetFactsFragment extends Fragment implements ServiceConnection {
         super.onPause();
 //        getActivity().unregisterReceiver(this.broadcastReceiver);
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(broadcastReceiver);
+        Log.d(TAG,"Paused "+TAG);
     }
 
     @Override
