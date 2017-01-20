@@ -23,9 +23,7 @@
 
         <activity android:name=".fragments.OtherActivity" />
 
-        <!-- <activity android:name=".planetList.PlanetActivity"/> -->
-        <!-- <activity android:name=".planetList.DisplayActivity"/> -->
-        <activity android:name=".components.GameBoardActivity"></activity>
+        <activity android:name=".components.GameBoardActivity" />
     </application>
 
 </manifest>

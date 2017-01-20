@@ -32,4 +32,7 @@ public class Constant {
     public final static int MAX_COLOURS = 4;
 
     public final static int[] COLOURS = {Color.RED, Color.CYAN, Color.BLUE, Color.GREEN};
+
+    public final static int LEVEL_EASY = 3;
+    public final static int LEVEL_HARD = 5;
 }
