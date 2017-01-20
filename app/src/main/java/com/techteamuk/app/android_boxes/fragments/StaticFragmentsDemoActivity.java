@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.techteamuk.app.android_boxes.R;
-import com.techteamuk.app.android_boxes.components.GameBoardActivity;
+import com.techteamuk.app.android_boxes.game.GameBoardFragmentsActivity;
 
 /**
  * Created by jim on 17/01/2017.
@@ -20,10 +20,10 @@ public class StaticFragmentsDemoActivity extends AppCompatActivity {
     }
 
     public void showGameBoard(View v) {
-        Intent gameBoard=new Intent(this, GameBoardActivity.class);
+        Intent gameBoardFragments=new Intent(this, GameBoardFragmentsActivity.class);
 
-        gameBoard.putExtra("ready", true);
-        startActivity(gameBoard);
+        gameBoardFragments.putExtra("ready", true);
+        startActivity(gameBoardFragments);
     }
 
     public void showOther(View v) {

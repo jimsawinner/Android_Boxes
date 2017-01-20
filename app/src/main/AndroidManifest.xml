@@ -24,6 +24,7 @@
         <activity android:name=".fragments.OtherActivity" />
 
         <activity android:name=".components.GameBoardActivity" />
+        <activity android:name=".game.GameBoardFragmentsActivity" />
     </application>
 
 </manifest>

@@ -2,25 +2,25 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:rowCount="3"
+    android:columnCount="3"
     android:orientation="horizontal">
 
-    <fragment android:name="com.techteamuk.app.android_boxes.fragments.GameScoreFragment"
+    <fragment android:name="com.techteamuk.app.android_boxes.fragments.PlanetListFragment"
         android:layout_column="0"
-        android:layout_width="match_parent"
-        android:layout_height="125sp"
-        android:id="@+id/fragment_score" />
+        android:layout_width="125sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_left" />
 
-    <!--<fragment android:name="com.techteamuk.app.android_boxes.fragments.PlanetDetailFragment"-->
-        <!--android:layout_column="1"-->
-        <!--android:layout_width="500sp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/fragment_centre"/>-->
+    <fragment android:name="com.techteamuk.app.android_boxes.fragments.PlanetDetailFragment"
+        android:layout_column="1"
+        android:layout_width="500sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_centre"/>
 
-    <!--<fragment android:name="com.techteamuk.app.android_boxes.fragments.PlanetFactsFragment"-->
-        <!--android:layout_column="2"-->
-        <!--android:layout_width="500sp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/fragment_right" />-->
+    <fragment android:name="com.techteamuk.app.android_boxes.fragments.GameScoreFragment"
+        android:layout_column="2"
+        android:layout_width="500sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_right" />
 
 </GridLayout>
