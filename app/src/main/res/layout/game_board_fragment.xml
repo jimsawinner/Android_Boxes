@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" android:id="@+id/frame_board_layout">
 
     <LinearLayout
-        android:layout_columnSpan="2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <Chronometer
@@ -16,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="15dp"
-            android:textSize="40sp" />
+            android:textSize="140sp" />
 
     </LinearLayout>
 </FrameLayout>

@@ -19,6 +19,7 @@ public class GameBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(new MyView(this));
 //        setContentView(R.layout.activity_game_board);
+
     }
 
     public class MyView extends View {

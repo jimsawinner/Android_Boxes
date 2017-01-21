@@ -15,6 +15,7 @@ import android.os.SystemClock;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -63,16 +64,17 @@ public class GameScoreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.game_score_fragment, container, false);
 
-        ((Button)view.findViewById(R.id.add_list_item_btn)).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view){
+
+//        ((Button)view.findViewById(R.id.add_list_item_btn)).setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view){
 //                         Popup 'toast' at bottom of screen
-                        Toast.makeText(getActivity(), "Not possible.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
-        view.setBackgroundColor(Color.GREEN);
+//                        Toast.makeText(getActivity(), "Not possible.", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//        );
+        view.setBackgroundColor(Color.LTGRAY);
         return(view);
     }
 }

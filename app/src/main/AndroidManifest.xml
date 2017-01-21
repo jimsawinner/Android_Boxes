@@ -12,19 +12,21 @@
         <!-- <activity android:name=".MainActivity"/> -->
 
         <activity android:name=".fragments.StaticFragmentsDemoActivity">
+
+        </activity>
+
+        <service android:name=".services.GameTimerBoundService" />
+
+        <activity android:name=".fragments.OtherActivity" />
+        <activity android:name=".components.GameBoardActivity" />
+        <activity android:name=".game.GameBoardFragmentsActivity" />
+        <activity android:name=".game.GameLobbyFragmentsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service android:name=".services.GameTimerBoundService" />
-
-        <activity android:name=".fragments.OtherActivity" />
-
-        <activity android:name=".components.GameBoardActivity" />
-        <activity android:name=".game.GameBoardFragmentsActivity" />
     </application>
 
 </manifest>

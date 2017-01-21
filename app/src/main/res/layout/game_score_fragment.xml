@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="4"
-            android:rowCount="4"
+            android:rowCount="1"
             android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
@@ -17,36 +17,33 @@
                 android:layout_row="0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="50sp"
+                android:textSize="40sp"
+                android:textAlignment="textEnd"
                 android:text="Player 1"/>
 
-            <Button
-                android:id="@+id/add_list_item_btn"
-                android:layout_column="0"
-                android:layout_row="1"
-                android:text="Add new Planet"
+            <TextView
+                android:layout_column="1"
+                android:layout_row="0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"/>
+                android:textSize="35sp"
+                android:text="Score: 0"/>
+
+            <TextView
+                android:layout_column="2"
+                android:layout_row="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35sp"
+                android:text="Score: 0"/>
 
             <TextView
                 android:layout_column="3"
                 android:layout_row="0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="50sp"
+                android:textSize="40sp"
                 android:text="Player 2"/>
-
-            <Chronometer
-                android:id="@+id/chronometer"
-                android:layout_column="3"
-                android:layout_row="1"
-                android:format="%s"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="15dp"
-                android:textSize="40sp" />
 
         </GridLayout>
 </FrameLayout>
