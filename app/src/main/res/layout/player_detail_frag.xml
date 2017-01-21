@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="64dp"
+    android:paddingRight="64dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/player_detail_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jim"
+        android:textSize="30sp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <Button
+        android:id="@+id/go_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go"/>
+
+    <Button
+        android:id="@+id/colourCycle_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cycle Colour"/>
+
+    <Chronometer
+        android:id="@+id/chronometer_1"
+        android:format="%s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"/>
+
+</LinearLayout>
